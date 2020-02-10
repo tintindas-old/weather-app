@@ -1,10 +1,6 @@
 import React, {useState} from 'react';
 
-
-const api = {
-  key: process.env.REACT_APP_OPEN_WEATHER_KEY,
-  baseURL: "https://api.openweathermap.org/data/2.5/"
-}
+const baseURL = "https://api.openweathermap.org/data/2.5/"
 
 function App() {
 
@@ -13,13 +9,11 @@ function App() {
 
   const search = evt => {
     if(evt.key === "Enter") {
-      fetch(api.baseURL+ "weather?q=" + query + "&units=metric&appid=" + api.key)
+      fetch(baseURL+ "weather?q=" + query + "&units=metric&appid=" + process.env.REACT_APP_OPEN_WEATHER_KEY)
         .then(res => res.json())
         .then(result => {
           setWeather(result);
           setQuery('');
-          console.log(result);
-          console.log(process.env.REACT_APP_OPEN_WEATHER_KEY);
         });
     }
   }
