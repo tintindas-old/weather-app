@@ -19,7 +19,7 @@ function App() {
           setWeather(result);
           setQuery('');
           console.log(result);
-          console.log(api.key);
+          console.log(process.env.REACT_APP_OPEN_WEATHER_KEY);
         });
     }
   }
